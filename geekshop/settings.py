@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import django.core.mail.backends.filebased
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -143,4 +145,10 @@ EMAIL_HOST_USER = 'django@gb.local'
 EMAIL_HOST_PASSWORD = 'geekbrains'
 EMAIL_USE_SSL =False
 
+# python -m smtpd
 # EMAIL_HOST_USER, EMAIL_HOST_PASSWORD = None, None
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = 'tmp/emails/'
+
+DOMAIN_NAME = 'http://localhost:8000/'
